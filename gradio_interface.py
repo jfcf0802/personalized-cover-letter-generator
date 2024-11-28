@@ -1,22 +1,24 @@
 # Import necessary packages
 import gradio as gr
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-import torch
+# import torch
 
 # # Check if a GPU is available
 # device = 0 if torch.cuda.is_available() else -1
 
 # Model and project settings
 # Using a smaller, faster model
-model_id = "allenai/Llama-3.1-Tulu-3-8B"
+# model_id = "allenai/Llama-3.1-Tulu-3-8B"
 
-# Initialize the tokenizer and model
-tokenizer = AutoTokenizer.from_pretrained(model_id)
-model = AutoModelForCausalLM.from_pretrained(model_id)
+# # Initialize the tokenizer and model
+# tokenizer = AutoTokenizer.from_pretrained(model_id)
+# model = AutoModelForCausalLM.from_pretrained(model_id)
 
-# Initialize the text generation pipeline with hardware acceleration
-generator = pipeline('text-generation', model=model,
-                     tokenizer=tokenizer, do_sample=True)
+# # Initialize the text generation pipeline with hardware acceleration
+# generator = pipeline('text-generation', model=model,
+#                      tokenizer=tokenizer, do_sample=True)
+
+generator = pipeline("text-generation", model="microsoft/Phi-3-mini-4k-instruct", trust_remote_code=True)
 
 # Function to generate a customized cover letter
 
@@ -60,4 +62,4 @@ cover_letter_app = gr.Interface(
 )
 
 # Launch the application
-cover_letter_app.launch()
+cover_letter_app.launch(share=True)
