@@ -48,9 +48,9 @@ cover_letter_app = gr.Interface(
         gr.Textbox(label="Resume Content",
                    placeholder="Paste your resume content here...", lines=10),
     ],
-    outputs=gr.Textbox(label="Customized Cover Letter", placeholder="The generated cover letter will appear here..."),
-    title="Customized Cover Letter Generator",
-    description="Generate a customized cover letter by entering the company name, position name, job description and your resume."
+    outputs=gr.Textbox(label="Personalized Cover Letter", placeholder="The generated cover letter will appear here..."),
+    title="Personalized Cover Letter Generator",
+    description="Generate a personalized cover letter by entering the company name, company description, position name, job description and your resume."
 )
 
 # Launch the application
